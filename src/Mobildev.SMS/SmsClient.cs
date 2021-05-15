@@ -47,7 +47,8 @@ namespace Mobildev.SMS
                 Body = body.CleanHtmlTags().CleanInvalidChars(),
                 Number = string.Join(",", numbers),
                 DisplayName = displayName,
-                SendDate = DateTime.Now.ToString("ddMMyyyyhhmm")
+                SendDate = DateTime.Now.ToString("ddMMyyyyhhmm"),
+                Type = "N"
             };
 
             var result = SendRequest(message);
@@ -73,14 +74,14 @@ namespace Mobildev.SMS
 
             return result;
         }
-
         private static string SendRequest<T>(T obj)
         {
             using (var client = new HttpClient())
             {
                 var postData = obj.Serialize(Encoding.UTF8, true);
                 var content = new StringContent(postData, Encoding.UTF8);
-                var request = client.PostAsync("http://8bit.mobilus.net/", content).Result;
+                //var request = client.PostAsync("http://8bit.mobilus.net/", content).Result;
+                var request = client.PostAsync("http://xmlapi.mobildev.com", content).Result;
                 var result = request.Content.ReadAsStringAsync().Result;
                 return result;
             }

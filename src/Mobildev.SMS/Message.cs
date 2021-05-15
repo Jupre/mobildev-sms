@@ -17,5 +17,8 @@ namespace Mobildev.SMS
 
         [XmlElement("SDate")]
         public string SendDate { get; set; }
+
+        [XmlElement("MessageType")]
+        public string Type { get; set; }
     }
 }

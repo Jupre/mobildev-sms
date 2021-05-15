@@ -13,8 +13,11 @@ namespace Mobildev.SMS.Tests
         [Test]
         public void send_sms()
         {
-            var smsClient = new SmsClient("**", "**");
-            var result = smsClient.Send(ActionTypes.SmsToConcat, "Test mesajı", new List<string> { "5055257622" }, "MDEV DEMO");
+            //var smsClient = new SmsClient("karsan-mb1925", "081428");
+           // var smsClient = new SmsClient("pelit1-mb1925", "4037");
+            var smsClient = new SmsClient("tekiziletisim-mb1925", "8033");
+            //var result = smsClient.Send(ActionTypes.SmsToConcat, "Test mesajı", new List<string> { "5313357661" }, "MDEV DEMO");
+            var result = smsClient.Send(ActionTypes.Sms, "Test mesajı", new List<string> { "5313357661" }, "");
             Console.WriteLine(result);
         }
 
@@ -33,7 +36,9 @@ namespace Mobildev.SMS.Tests
         [Test]
         public void get_user_info()
         {
-            var smsClient = new SmsClient("**", "**");
+            // var smsClient = new SmsClient("**", "**");
+            //var smsClient = new SmsClient("mirhatt-mb1925", "54623");
+            var smsClient = new SmsClient("tekiziletisim-mb1925", "8033");
             var result = smsClient.GetUserInfo(ActionTypes.UserInfo);
             Console.WriteLine(result);
 
